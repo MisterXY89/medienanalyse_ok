@@ -6,7 +6,7 @@ import datetime
 from dateutil import rrule
 
 from settings import API_KEY, SEARCH_TERM, LANG, FROM_DATE, TO_DATE
-from db_helper import *
+from db_helper import write_url, write_text
 from helper import url_filter
 
 
@@ -62,4 +62,4 @@ for story in stories:
 		"media_url": media_url,
 	}
 
-	write_to_db(stories_id, media_id, title, url, collect_date, publish_date)
+	write_url(stories_id, media_id, title, url, collect_date, publish_date)
