@@ -27,8 +27,8 @@ for dt in rrule.rrule(rrule.DAILY,
 	print(f"Getting stories: for {date1}")
 	date2 = date1 + datetime.timedelta(days=1)
 	print(date2)
-    q_item = mediacloud.storyList(SEARCH_TERM, solr_filter=mediacloud.publish_date_query( date1, date2 ), rows = 100 )
-    store(q_item)
+	q_item = mediacloud.storyList(SEARCH_TERM, solr_filter=mediacloud.publish_date_query( date1, date2 ), rows = 100 )
+	store(q_item)
 	stories.append( q_item )
 
 
