@@ -46,10 +46,6 @@ def store(story):
 
 	write_url(stories_id, media_id, title, url, collect_date, publish_date)
 
-mediacloud = mediacloud.api.MediaCloud(API_KEY)
-
-numOfStoriesTotal = int(mediacloud.storyCount(SEARCH_TERM, LANG, mediacloud.publish_date_query( datetime.date(2019, 1, 1), datetime.date(2019, 12, 31) ))["count"])
-print(numOfStoriesTotal)
 
 stories = []
 for dt in rrule.rrule(rrule.DAILY,
@@ -62,7 +58,7 @@ for dt in rrule.rrule(rrule.DAILY,
 	print(f"Getting stories: for {date1}")
 	date2 = date1 + datetime.timedelta(days=1)
 	print(date2)
-	q_item = mediacloud.storyList(SEARCH_TERM, solr_filter=mediacloud.publish_date_query( date1, date2 ), rows = 100 )
+	q_item = mediacloud.storyList(SEARCH_TERM, solr_filter=mediacloud.publish_date_query( date1, date2 ), rows = 100 )[0]
 	store(q_item)
 	stories.append( q_item )
 
