@@ -16,5 +16,5 @@ POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
 SEARCH_TERM = 'Organisierte Kriminalität OR Organisierte Kriminalitaet'
 LANG = "language:de"
 
-FROM_DATE = '2017-01-01'
+FROM_DATE = '2016-01-01'
 TO_DATE = '2020-12-31'
