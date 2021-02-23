@@ -32,8 +32,7 @@ def store(stories):
     		media_name = story["media_name"]
     		media_url = story["media_url"]
 
-
-            write_url(stories_id, media_id, title, url, collect_date, publish_date)
+		write_url(stories_id, media_id, title, url, collect_date, publish_date)
 
 
 stories = []
