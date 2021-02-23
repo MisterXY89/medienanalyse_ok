@@ -50,7 +50,7 @@ def read_urls():
                     )
         cur = connection.cursor()
         cur.execute("SELECT story_id, url FROM story_urls;")
-        rows = cursor.fetchall()
+        rows = cur.fetchall()
         all_urls = []
         for row in rows:
             all_urls.append({
