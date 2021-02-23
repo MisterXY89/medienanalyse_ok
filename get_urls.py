@@ -49,17 +49,17 @@ for story in stories:
 		media_name = story["media_name"]
 		media_url = story["media_url"]
 
-        story_dict =  {
-            "url" : url,
-            "publish_date": publish_date,
-            "collect_date": collect_date,
-            "media_id": media_id,
-        }
+	story_dict =  {
+		"url" : url,
+		"publish_date": publish_date,
+		"collect_date": collect_date,
+		"media_id": media_id,
+	}
 
-        media_dict = {
-            "media_id": media_id,
-            "media_name": media_name,
-            "media_url": media_url,
-        }
+	media_dict = {
+		"media_id": media_id,
+		"media_name": media_name,
+		"media_url": media_url,
+	}
 
-		write_to_db(stories_id, media_id, title, url, collect_date, publish_date, media_url, media_name)
+	write_to_db(stories_id, media_id, title, url, collect_date, publish_date)
