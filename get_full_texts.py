@@ -3,19 +3,21 @@ from newsplease import NewsPlease
 from db_helper import write_text, read_urls
 
 
-urlDictList = read_urls()
+all_urls = read_urls()
+if not all_urls:
+    raise Exception(f"ReadError: No urls found.\n {all_urls=}")
 
-print(len(urlDictList))
+print(len(all_urls))
 
 bs = 0
-for x in range(0, len(urlDictList)):
-	print(urlDictList[x]["url"])
+for x in range(0, len(all_urls)):
+	print(all_urls[x]["url"])
 	try:
-		article = NewsPlease.from_url(urlDictList[x]["url"])
+		article = NewsPlease.from_url(all_urls[x]["url"])
 		text = article.text
-		stories_id = urlDictList[x]["id"]
+		stories_id = all_urls[x]["id"]
 		print(f"Processing: {stories_id}")
-		writeTextToDB(stories_id, text)
+		write_text(stories_id, text)
 	except Exception as e:
 		# print(e)
 		bs += 1
