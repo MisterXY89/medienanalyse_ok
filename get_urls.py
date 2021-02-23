@@ -16,23 +16,23 @@ numOfStoriesTotal = int(mediacloud.storyCount(SEARCH_TERM, LANG, mediacloud.publ
 print(numOfStoriesTotal)
 
 def store(stories):
-    for story in stories:
-    	url = story["url"]
-    	print(url)
-    	if url_filter(url):
-    		stories_id = int(story["stories_id"])
-    		print("Processing { story_id:%s } "%stories_id)
-    		title = re.sub('\s+', ' ', (story["title"])).strip()
+	for story in stories:
+		url = story["url"]
+		print(url)
+		if url_filter(url):
+			stories_id = int(story["stories_id"])
+			print("Processing { story_id:%s } "%stories_id)
+			title = re.sub('\s+', ' ', (story["title"])).strip()
 
-    		url = story["url"]
-    		publish_date = story["publish_date"]
-    		collect_date = story["collect_date"]
+			url = story["url"]
+			publish_date = story["publish_date"]
+			collect_date = story["collect_date"]
 
-    		media_id = int(story["media_id"])
-    		media_name = story["media_name"]
-    		media_url = story["media_url"]
+			media_id = int(story["media_id"])
+			media_name = story["media_name"]
+			media_url = story["media_url"]
 
-		write_url(stories_id, media_id, title, url, collect_date, publish_date)
+			write_url(stories_id, media_id, title, url, collect_date, publish_date)
 
 
 stories = []
