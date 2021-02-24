@@ -32,7 +32,7 @@ def write_text(story_id, text_full):
         cur = connection.cursor()
 
         cur.execute(f"INSERT INTO story_full (story_id, text_full) \
-          VALUES ({story_id}, {text_full});")
+          VALUES ({story_id}, '{text_full}');")
         connection.commit()
         connection.close()
     except Exception as e:
