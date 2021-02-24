@@ -14,9 +14,7 @@ for x in range(0, len(all_urls)):
 	print(all_urls[x]["url"])
 	try:
 		article = NewsPlease.from_url(all_urls[x]["url"])
-        print(article)
-        print(dir(article))
-		text = article.text
+		text = article.maintext
 		stories_id = all_urls[x]["id"]
 		print(f"Processing: {stories_id}")
 		write_text(stories_id, text)
