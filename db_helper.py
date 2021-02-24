@@ -1,7 +1,7 @@
 
 import psycopg2
 
-from settings import POSTGRES_USER, POSTGRES_PASSWORD
+from settings import POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST
 
 def write_url(story_id, media_id, title, url, collect_date, publish_date):
     try:
@@ -22,6 +22,7 @@ def write_url(story_id, media_id, title, url, collect_date, publish_date):
         return False
 
 def write_text(story_id, text_full):
+    text_full = text_full.replace("'", "''")
     try:
         connection = psycopg2.connect(database="medienanalyse_ok",
                             user=POSTGRES_USER,
@@ -45,7 +46,7 @@ def read_urls():
         connection = psycopg2.connect(database="medienanalyse_ok",
                         user=POSTGRES_USER,
                         password=POSTGRES_PASSWORD,
-                        host="127.0.0.1",
+                        host=POSTGRES_HOST,
                         port="5432"
                     )
         cur = connection.cursor()
@@ -63,3 +64,6 @@ def read_urls():
     except Exception as e:
         print(e)
         return False
+
+
+us = read_urls()
