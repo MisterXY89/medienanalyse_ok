@@ -50,7 +50,7 @@ def read_urls():
                         port="5432"
                     )
         cur = connection.cursor()
-        cur.execute("SELECT story_id, url FROM story_urls;")
+        cur.execute("SELECT story_id, url FROM story_urls WHERE publish_date LIKE '2017-%';")
         rows = cur.fetchall()
         all_urls = []
         for row in rows:
